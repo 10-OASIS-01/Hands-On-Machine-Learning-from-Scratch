@@ -88,7 +88,8 @@
 1. 可采用 OVR、OVO、ECOC 策略。
 2. 可采用 CrossEntropy Loss +
 
- softmax 策略：
+####  softmax 策略：
+ 
    a) 需将三个类别（如 0, 1, 2）进行 one-hot 编码。  
    b) 每个线性分类器对应一组模型参数，3 个线性分类器对应 3 组模型参数。  
    c) 可通过 softmax 回归计算多种类别的概率（K 种类别概率和为 1）。  
