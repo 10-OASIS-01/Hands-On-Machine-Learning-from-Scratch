@@ -1,7 +1,7 @@
 
 ## 四、决策树
 
-### 题目一：采用 scikit-learn 中的 DecisionTreeClassifier 决策树对葡萄酒数据集进行预测
+### [1. 采用 scikit-learn 中的 DecisionTreeClassifier 决策树对葡萄酒数据集进行预测](ML4_1.ipynb)
 
 #### 具体内容：
 
@@ -25,7 +25,7 @@
 - **讨论二：如何确定最优的剪枝参数？**  
    找到合适的超参数，展示调整后的模型效果。可使用学习曲线进行超参数选取，其优点是可以看到超参数对模型性能影响的趋势。如果需要确定的超参数比较多，且超参数之间相互影响时，可尝试使用 `GridSearchCV` 选择模型最优的超参数。
 
-### 题目二：使用 scikit-learn 中的 DecisionTreeClassifier 决策树对 kddcup99 数据集进行预测
+### [2. 使用 scikit-learn 中的 DecisionTreeClassifier 决策树对 kddcup99 数据集进行预测](ML4_2.ipynb)
 
 #### 具体内容：
 
@@ -45,7 +45,9 @@
 3. **选择评价指标**  
    - 选择适合的评价指标，尝试调参，建立效果最好的一个模型。
 
-### 题目三：使用 numpy 编写的 CART 分类/回归树（选择一种即可）算法，并对 iris 数据集/california 数据集进行预测
+### [3. 使用 numpy 编写的 CART 分类/回归树（选择一种即可）算法，并对 iris 数据集/california 数据集进行预测](ML4_3.ipynb)
+
+`CART.py`中为 CART 分类/回归树算法的具体实现代码 
 
 #### 具体内容：
 
@@ -59,9 +61,7 @@
    - 参考程序模板 `cart_numpy_template.py` 进行训练。
 
 4. **输出树模型**  
-   - 输出训练后的决策
-
-树模型。
+   - 输出训练后的决策树模型。
 
 5. **模型预测**  
    - 在测试集上进行预测，评估模型性能。
