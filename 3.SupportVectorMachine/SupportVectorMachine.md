@@ -1,98 +1,98 @@
-## 三、支持向量机
+## III. Support Vector Machine (SVM)
 
-### [1. 采用 scikit-learn 中的线性 SVM 对 iris 数据集进行二分类](ML3_1.ipynb)
+### [1. Perform Binary Classification on the Iris Dataset Using Linear SVM in scikit-learn](ML3_1.ipynb)
 
-#### 具体内容：
+#### Details:
 
-1. **选取两个特征和两类数据使用 scikit-learn 中的 SVM 进行二分类**  
-   - 使用线性 SVM 进行二分类建模。
+1. **Select two features and two classes of data for binary classification using SVM in scikit-learn**  
+   - Use linear SVM to build a binary classification model.
 
-2. **输出**  
-   - 输出决策边界的参数和截距、支持向量等信息。
+2. **Output**  
+   - Output parameters and intercept of the decision boundary, support vectors, and other related information.
 
-3. **可视化**  
-   - 通过散点图可视化数据样本（之前选择的两个特征），并画出决策边界和 2 个最大间隔边界，标出支持向量。
+3. **Visualization**  
+   - Visualize data samples (the two selected features) using a scatter plot, draw the decision boundary and two maximum margin boundaries, and mark the support vectors.
 
-#### 讨论：
+#### Discussion:
 
-- **讨论一：选取的两个特征能否线性可分？若线性可分，可选择 scikit-learn 中何种 SVM 进行建模？若线性不可分，可选择 scikit-learn 中何种 SVM 进行建模？**
+- **Discussion 1: Can the two selected features be linearly separable? If they are linearly separable, which type of SVM in scikit-learn would be appropriate for modeling? If they are not linearly separable, which type of SVM in scikit-learn would be appropriate for modeling?**
 
-- **讨论二：SVM 中的惩罚系数 C 对模型有何影响？**  
-   1. 尝试改变惩罚系数 `C`，分析其变化对应间隔宽度、支持向量数量的变化趋势，并解释原因。  
-   2. 尝试改变惩罚系数 `C`，分析其对 iris 分类模型性能的影响，并解释原因。
+- **Discussion 2: What impact does the penalty parameter C have on the SVM model?**  
+   1. Try changing the penalty parameter C, analyze its effect on the margin width, the number of support vectors, and explain the reasons.  
+   2. Try changing the penalty parameter C, analyze its effect on the performance of the Iris classification model, and explain the reasons.
 
-### [2. 采用不同的 SVM 核函数对多种类型数据集进行二分类](ML3_2.ipynb)
+### [2. Perform Binary Classification on Various Data Sets Using Different SVM Kernels](ML3_2.ipynb)
 
-#### 具体内容：
+#### Details:
 
-1. **生成数据集**  
-   - 使用 scikit-learn 中提供的样本生成器 `make_blobs`、`make_classification`、`make_moons`、`make_circles` 生成一系列线性或非线性可分的二类别数据（数据量任取）。
+1. **Generate Data Sets**  
+   - Use sample generators from scikit-learn such as `make_blobs`, `make_classification`, `make_moons`, and `make_circles` to create a series of linearly or non-linearly separable binary datasets (choose any size).
 
-2. **建模**  
-   - 分别将 SVM 中四种核函数（线性核、多项式核、高斯核、S 形核）用于上述四种数据集。提示：对于每一种核函数，选择最适合的核参数（如 RBF 核中 `gamma`，多项式核中 `degree` 等）。可通过超参数曲线帮助选择超参数。
+2. **Modeling**  
+   - Apply four types of SVM kernels (linear kernel, polynomial kernel, Gaussian kernel, and sigmoid kernel) to the four datasets. Tip: For each kernel, choose the most appropriate kernel parameters (such as gamma for the RBF kernel, degree for the polynomial kernel, etc.). Hyperparameter tuning can be done using a hyperparameter search.
 
-3. **可视化**  
-   - 通过散点图可视化数据样本，并画出 SVM 模型的决策边界。
+3. **Visualization**  
+   - Visualize the data samples using a scatter plot and draw the decision boundary of the SVM model.
 
-4. **模型评价**  
-   - 分类准确率。
+4. **Model Evaluation**  
+   - Evaluate the classification accuracy.
 
-#### 讨论：
+#### Discussion:
 
-- **讨论三：如何选择最优超参数？**  
-   为每种模型选择适合的核函数及核参数，参数寻优方式自选。
+- **Discussion 3: How to select the optimal hyperparameters?**  
+   Choose the most suitable kernel and kernel parameters for each model and select the parameter tuning method.
 
-- **讨论四：不同核函数在不同数据集上表现如何？**  
-   通过观察不同核函数在不同数据集上的决策边界和分类准确率，分析不同核函数的适用场合。
+- **Discussion 4: How do different kernels perform on different datasets?**  
+   By observing the decision boundaries and classification accuracy for different kernels on different datasets, analyze the suitability of each kernel for specific scenarios.
 
-### [3. 使用 scikit-learn 中的 SVM 分类器对乳腺癌威斯康星州数据集进行分类](ML3_3.ipynb)
+### [3. Perform Classification on the Breast Cancer Wisconsin Dataset Using the SVM Classifier in scikit-learn](ML3_3.ipynb)
 
-#### 具体内容：
+#### Details:
 
-1. **导入数据集**  
-   - 乳腺癌威斯康星州数据集是 sklearn 中自带的数据集（`load_breast_cancer`）。通过查看数据量和维度、特征类型（离散或连续）、特征名、标签名、标签分布情况、数据集的描述等信息了解数据集。
+1. **Load the Dataset**  
+   - The Breast Cancer Wisconsin dataset is built into scikit-learn (`load_breast_cancer`). Explore the dataset by reviewing its size, dimensions, feature types (discrete or continuous), feature names, label names, label distribution, and other descriptive information.
 
-2. **建模**  
-   - 分别使用四种核函数对数据集进行分类。
+2. **Modeling**  
+   - Use four kernel functions to classify the dataset.
 
-3. **模型评价**  
-   - 每种核函数下的分类准确率、计算时间等。
+3. **Model Evaluation**  
+   - Evaluate classification accuracy, computation time, and other metrics for each kernel function.
 
-#### 讨论：
+#### Discussion:
 
-- **讨论五：四种核函数在这个数据集上表现如何？**  
-   提示：不要求可视化，从准确率上判断即可。
+- **Discussion 5: How do the four kernels perform on this dataset?**  
+   Tip: Visualization is not required, focus on evaluating based on accuracy.
 
-- **讨论六：SVM 是否需要进行数据归一化处理？数据归一化对核函数有何影响？**  
-   提示：尝试分析数据归一化对四种核函数的工作有何影响，从分类准确率、计算时间等角度对比。
+- **Discussion 6: Does SVM require data normalization? What is the impact of normalization on the kernels?**  
+   Tip: Try analyzing the effect of data normalization on the four kernel functions, comparing classification accuracy, computation time, and other relevant aspects.
 
-### [4. 编写 SMO 算法实现线性 SVM 分类器，对 iris 数据集进行二分类](ML3_4.ipynb)
+### [4. Implement an SMO-Based Linear SVM Classifier to Perform Binary Classification on the Iris Dataset](ML3_4.ipynb)
 
-`SVM.py`中为基于SMO算法的SVM分类器的具体实现代码          
+The SVM.py file contains the implementation of an SVM classifier based on the SMO algorithm.
 
-#### 具体内容：
+#### Details:
 
-1. **选取两个特征和两类数据进行二分类**  
-   - 注意：二分类标签为 1 和 -1。
+1. **Select two features and two classes of data for binary classification**  
+   - Note: The binary labels are 1 and -1.
 
-2. **划分数据**  
-   - 将数据划分为训练集和测试集。
+2. **Split the Data**  
+   - Divide the data into training and testing sets.
 
-3. **数据归一化**  
-   - 对数据进行归一化处理。
+3. **Data Normalization**  
+   - Perform data normalization.
 
-4. **训练模型**  
-   - 参考程序模板 `SVM_numpy_template.py`。
+4. **Train the Model**  
+   - Refer to the program template `SVM_numpy_template.py`.
 
-5. **输出**  
-   - 输出 SVM 对偶问题目标函数的最优解 `𝛼`，决策函数的参数和截距，支持向量等。
+5. **Output**  
+   - Output the optimal solution for the SVM dual problem (α), parameters and intercept of the decision function, support vectors, and other relevant details.
 
-6. **可视化**  
-   - 通过散点图可视化训练数据样本，并画出决策面和 2 个最大间隔面，标出支持向量（包括间隔上和间隔内的样本），帮助检验算法正确性。
+6. **Visualization**  
+   - Visualize the training data samples using a scatter plot, draw the decision boundary and two maximum margin boundaries, and mark the support vectors (including those on the margin and inside the margin) to help verify the correctness of the algorithm.
 
-7. **测试集数据进行预测，评估模型性能**  
-   - 在测试集上进行预测并评估模型性能。
+7. **Prediction on the Test Set and Model Evaluation**  
+   - Make predictions on the test set and evaluate the model performance.
 
-#### 讨论：
+#### Discussion:
 
-- **讨论七：请根据实验结果描述软间隔 SVM 中的 C 参数、拉格朗日乘子 `α`、支持向量与最优决策面和间隔区域之间的关系。**
+- **Discussion 7: Based on the experimental results, describe the relationship between the C parameter in soft margin SVM, the Lagrange multipliers (α), support vectors, and the optimal decision boundary and margin regions.**
