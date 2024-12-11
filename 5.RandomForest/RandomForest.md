@@ -1,42 +1,43 @@
-## 五、随机森林
+## V. Random Forests
 
-### [1. 采用 scikit-learn 中的 RandomForestRegressor 对加利福尼亚房价数据集进行预测](ML5_1.ipynb)
+### [1. Predict the California Housing Dataset Using RandomForestRegressor from scikit-learn](ML5_1.ipynb)
 
-#### 具体要求：
+#### Requirements:
 
-1. **导入数据集**  
-   加利福尼亚房价数据集是 sklearn 中自带的数据集。通过查看数据量、维度、特征类型（离散或连续）、特征名、标签名、标签分布情况等信息了解数据集。
+1. **Load the Dataset**  
+   The California housing dataset is a built-in dataset in scikit-learn. Explore the dataset by reviewing its size, dimensions, feature types (discrete or continuous), feature names, label names, label distribution, and other descriptive information.
 
-2. **模型建立**  
-   - 使用 `DecisionTreeRegressor` 和 `RandomForestRegressor` 分别建立预测模型，参数使用默认设置。
+2. **Model Building**  
+   - Build prediction models using `DecisionTreeRegressor` and `RandomForestRegressor`, with default parameter settings.
    
-3. **模型评估**  
-   - 输出训练集和测试集评分，以根均方误差（RMSE）为评估指标。
-   - 使用 `cross_validate` 来评估模型，可以通过 `scoring` 参数设置多种评分指标，如 RMSE。
-   - 如果需要训练集和测试集的评分，确保使用 `return_train_score=True`。
+3. **Model Evaluation**  
+   - Output the training and testing scores using Root Mean Squared Error (RMSE) as the evaluation metric.
+   - Use `cross_validate` to assess the model, and specify the `scoring` parameter to set multiple evaluation metrics like RMSE.
+   - To obtain both training and testing scores, ensure `return_train_score=True` is set.
 
-#### 提示：
-- `cross_val_score` 只能得到测试集的分数，且只能使用一种评分指标。  
-- `cross_validate` 允许使用多个评分指标，并返回训练时间、测试时间、测试集分数和训练集分数。
+#### Tips:
+- `cross_val_score` only provides the test score and can only use one evaluation metric.  
+- `cross_validate` allows multiple evaluation metrics and returns training time, testing time, test scores, and training scores.
 
-#### 讨论：
+#### Discussion:
 
-- **讨论一：比较随机森林和决策树在数据集上的表现**  
-   - 比较两种模型的 RMSE，分析交叉验证的评分，尝试通过可视化分析两者在加利福尼亚房价数据集上的表现差异。
-   
-- **讨论二：随机森林中的 `n_estimators` 超参数如何选择？**  
-   - 可采用学习曲线来选择 `n_estimators` 的超参数范围，观察不同 `n_estimators` 下模型性能变化，确定最佳值。
+- **Discussion 1: Compare the performance of Random Forest and Decision Tree on the dataset**  
+   - Compare the RMSE of both models, analyze cross-validation scores, and attempt to visualize the differences in their performance on the California housing dataset.
 
-- **讨论三：选择合适的超参数**  
-   - 使用不同的超参数搜索方法（如网格搜索、随机搜索）来寻找最优超参数，最终在交叉验证集上建模并计算 RMSE 评分。  
-   - 介绍调参过程，并比较调参前后的效果。
+- **Discussion 2: How to choose the `n_estimators` hyperparameter in Random Forest?**  
+   - Use learning curves to select a range for the `n_estimators` hyperparameter, observe how model performance changes with different values of `n_estimators`, and determine the optimal value.
 
-### [2. 编写随机森林算法，并对葡萄酒数据/加利福尼亚房价数据（任选其一）进行预测，并展示模型评分，与 sklearn 自带的评估器建模结果进行对比。](ML5_2.ipynb)
+- **Discussion 3: Selecting the Appropriate Hyperparameters**  
+   - Use different hyperparameter search methods (such as grid search or random search) to find the optimal hyperparameters. Finally, build a model on the cross-validation set and calculate the RMSE score.  
+   - Explain the hyperparameter tuning process and compare the model performance before and after tuning.
 
+### [2. Implement a Random Forest Algorithm and Predict on the Wine or California Housing Dataset (Choose One), Comparing the Model Scores with the Results from scikit-learn's Built-in Evaluator](ML5_2.ipynb)
 
-`RandomForest.py`中为随机森林算法算法的具体实现代码 
+The `RandomForest.py` file contains the specific implementation of the Random Forest algorithm.
 
-#### 具体要求：
-1. 编写一个自定义的随机森林算法。
-2. 使用葡萄酒数据或加利福尼亚房价数据集进行建模。
-3. 比较自定义算法与 sklearn 的 `RandomForestRegressor` 的模型评分。
+#### Requirements:
+
+1. Implement a custom Random Forest algorithm.
+2. Use either the Wine dataset or the California housing dataset for modeling.
+3. Compare the model scores of your custom algorithm with those of the scikit-learn `RandomForestRegressor`.
+
