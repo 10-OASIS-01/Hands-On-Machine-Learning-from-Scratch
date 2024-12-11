@@ -1,6 +1,6 @@
 ## 六、Adaboost
 
-### 题目一：采用 scikit-learn 中的 AdaBoostClassifier 对葡萄酒数据集进行预测
+### [1. 采用 scikit-learn 中的 AdaBoostClassifier 对葡萄酒数据集进行预测](ML6_1.ipynb)
 
 #### 具体要求：
 
@@ -31,7 +31,9 @@
 - **讨论五：综合进行超参数选择，找到最好的一组超参数**  
    - 在交叉验证集上验证模型效果，并与其他算法（如决策树、随机森林等）进行对比。
 
-### 题目二：编写 AdaBoost-SAMME 算法，并对乳腺癌数据集进行预测，展示模型评分。
+### [2. 编写 AdaBoost-SAMME 算法，并对乳腺癌数据集进行预测，展示模型评分。](ML6_2.ipynb)
+
+`AdaBoost.py`中为 AdaBoost-SAMME 算法的具体实现代码 
 
 #### 具体要求：
 
@@ -43,7 +45,7 @@
 - **讨论六：与 sklearn 自带的评估器建模结果进行对比**  
    比较自定义的 AdaBoost-SAMME 实现与 sklearn 的内置 AdaBoost 模型的评分。
 
-### 题目三：采用 scikit-learn 中的 GradientBoostingRegressor 对加利福尼亚房价数据集进行预测
+### [3. 采用 scikit-learn 中的 GradientBoostingRegressor 对加利福尼亚房价数据集进行预测](ML6_3.ipynb)
 
 #### 具体要求：
 
