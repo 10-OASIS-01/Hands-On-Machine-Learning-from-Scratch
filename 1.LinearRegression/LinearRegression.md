@@ -1,77 +1,73 @@
-## 一、线性回归
+## 1. Linear Regression
 
-### [1. 采用 scikit-learn 中的 LinearRegression(最小二乘)线性回归模型对波士顿房价数据集进行预测，分别使用正则方程和随机梯度下降方法建模。](ML1_1.ipynb)
+### [1. Use the LinearRegression (Least Squares) model from scikit-learn to predict the Boston Housing dataset, and model using both the Normal Equation and Stochastic Gradient Descent methods.](ML1_1.ipynb)
 
+#### Specific Content:
 
+1. **Importing Data**  
+   a) Explore the dataset’s description, feature names, label names, number of samples, and other relevant information.  
+   b) Retrieve the feature data and label data from the samples.
 
-#### 具体内容： 
+2. **Data Splitting**  
+   - Split the data into training and testing sets.
 
-1. **导入数据**  
-   a) 查看数据集的描述、特征名、标签名、数据样本量等信息。  
-   b) 获取样本的特征数据和标签数据。
+3. **Data Normalization**  
+   - Perform normalization on the data.
 
-2. **划分数据**  
-   - 将数据划分为训练集和测试集。
+4. **Training the Model**  
+   a) Use the LinearRegression model from scikit-learn to optimize the model using the Normal Equation method.  
+   b) Use the SGDRegressor model from scikit-learn to optimize the model using the Stochastic Gradient Descent (SGD) method.
 
-3. **数据归一化**  
-   - 对数据进行归一化处理。
+5. **Model Evaluation (for both models)**  
+   - Evaluation Metrics: MSE (Mean Squared Error) and R² score.
 
-4. **训练模型**  
-   a) 使用 sklearn 中线性回归的正规方程（LinearRegression）优化方法建模。  
-   b) 使用 sklearn 中线性回归的随机梯度下降（SGDRegressor）优化方法建模。
+#### Discussion:
 
-5. **模型评估（2 个模型）**  
-   - 评价指标：MSE 和 R²值。
+- **Discussion 1: What are the differences between the Gradient Descent and Normal Equation algorithms?**  
+   Analyze the differences between Gradient Descent and the Normal Equation algorithms (computation time, comparison of evaluation metrics) and their pros and cons. Hint: Use Python’s timer `timeit.default_timer()` method.
 
-#### 讨论：
+- **Discussion 2: How does data normalization affect the algorithm?**  
+   Compare the performance of both the Normal Equation and Gradient Descent algorithms with and without data normalization. Analyze the reason for any performance differences.
 
-- **讨论一：梯度下降和正规方程两种算法有何不同？**  
-   分析梯度下降和正规方程两种算法的差异（计算时间、评价指标对比）与优劣点。提示：Python 中计时器 `timeit.default_timer()` 方法。
+- **Discussion 3: How does the learning rate in Gradient Descent affect its performance?**  
+   Modify the learning rate (eta0) of the SGDRegressor and observe its impact on model performance. Try to analyze the relationship between the learning rate and model performance.
 
-- **讨论二：数据归一化对算法有什么影响？**  
-   对比使用数据归一化和不使用数据归一化，正规方程和梯度下降算法性能是否有差异？分析原因。
+- **Discussion 4: What is the model's generalization ability?**  
+   1. Calculate the model’s performance on both the training and testing samples, and determine if the model is overfitting or underfitting.  
+   2. Does the data split ratio affect model performance? Try adjusting the `test_size` parameter in the `train_test_split` function and observe how the dataset split impacts performance.  
+   3. Try using other linear regression models. In addition to `LinearRegression`, there are models like `Ridge` (Ridge Regression), `Lasso`, and `Polynomial Regression`. Use different models to observe the variations in the model weights after training, and analyze the use cases of each model.
 
-- **讨论三：梯度下降算法中的学习率如何影响其工作？**  
-   尝试修改随机梯度下降算法(SGDRegressor)的学习率（eta0），观察参数对模型性能的影响。试分析学习率与模型性能之间的关系。
+### [2. Implement the Linear Regression algorithm from scratch using numpy, optimizing it with Gradient Descent (BGD) to predict the Boston Housing prices.](ML1_2.ipynb)
 
-- **讨论四：模型的泛化能力如何？**  
-   1. 分别计算模型在训练样本上性能和在测试样本上的性能，判断模型是过拟合还是欠拟合？  
-   2. 数据集划分不同对模型性能是否有影响？可尝试修改方法 `train_test_split` 中的 `test_size` 参数，观察数据集划分对模型性能的影响。  
-   3. 尝试使用其他线性回归模型。线性回归模型中除了 `LinearRegression`，还有 `Ridge`（岭回归）、`Lasso`、`Polynomial regression`（多项式回归）等模型，使用不同模型进行建模，观察不同模型训练后的模型权重差异，试分析模型的使用场合。
- 
+The algorithm implementation code is provided in `LinearRegression.py`.
 
-### [2. 使用numpy从零实现线性回归算法，采用梯度下降法（BGD）优化线性回归模型，对波士顿房价进行预测。](ML1_2.ipynb)
+#### Specific Content:
 
-`LinearRegression.py`中为算法的具体实现代码
+1. **Importing Data**  
+   - Import the data from a `.csv` file.
 
-#### 具体内容：
+2. **Data Splitting**  
+   - Split the data into training and testing sets.
 
-1. **导入数据**  
-   - 从 `.csv` 文件中导入数据。
+3. **Data Normalization**  
+   - Normalize the data.
 
-2. **划分数据**  
-   - 将数据划分为训练集和测试集。
+4. **Training the Model**  
+   a) Initialize the parameters `w`. You can use the `np.concatenate` function to combine the intercept and weights into one array (or leave them separate).  
+   b) Compute `f(x)`.  
+   c) Compute `J(w)` (the cost function).  
+   d) Compute the gradient.  
+   e) Update the parameters `w`.  
+   Steps (b)-(e) are iterated for a specified number of `epochs`.
 
-3. **数据归一化**  
-   - 对数据进行归一化处理。
+5. **Plotting the Loss Function Curve**  
+   - Plot the loss function curve over iterations to observe the progress of gradient descent.
 
-4. **训练模型**  
-   a) 初始化参数 `w`，可使用 `np.concatenate` 数组拼接函数，将截距与权重参数合并在一起（也可以不拼接合并）。  
-   b) 求 `f(x)`。  
-   c) 求 `J(w)`。  
-   d) 求梯度。  
-   e) 更新参数 `w`。  
-   (b-e) 的过程经过 `epochs` 次迭代。
+6. **Prediction on the Test Set and Model Evaluation**  
+   - Evaluate the model’s performance on the test set.
 
-5. **画出损失函数随迭代次数的变化曲线**  
-   - 通过损失函数变化曲线来观察梯度下降执行情况。
+7. **Visualization**  
+   - Visualize the data and the model’s fitting results.
 
-6. **测试集数据进行预测，模型评估**  
-   - 评估模型在测试集上的性能。
-
-7. **可视化**  
-   - 展示数据拟合的效果。
-
-8. **小批量梯度下降算法（MBGD）的编程实现**  
-   - 实现小批量梯度下降（MBGD）。
-
+8. **Mini-batch Gradient Descent (MBGD) Implementation**  
+   - Implement the Mini-batch Gradient Descent (MBGD) algorithm.
