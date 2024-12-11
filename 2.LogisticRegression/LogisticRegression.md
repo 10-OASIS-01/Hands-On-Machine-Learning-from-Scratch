@@ -1,98 +1,94 @@
+## II. Logistic Regression
 
-## 二、逻辑回归
+### [1. Use the LogisticRegression model from scikit-learn for binary classification on the Iris dataset.](ML2_1.ipynb)
 
-### [1. 采用 scikit-learn 中的 LogisticRegression 逻辑回归模型对 iris 数据集进行二分类。](ML2_1.ipynb)
+#### Specific Content:
 
+1. **Feature Visualization**  
+   - Select two features and two classes, and visualize them using a scatter plot to observe if they are linearly separable.
 
-#### 具体内容：
+2. **Model Building**  
+   - Build a binary classification model using the selected features and classes.
 
-1. **特征可视化**  
-   - 任选两个特征和两种类别进行散点图可视化，观察是否线性可分。
+3. **Output**  
+   - Output the decision function parameters, predicted values, and classification accuracy.
 
-2. **模型建立**  
-   - 使用选取的特征和两种类别建立二分类模型。
+4. **Decision Boundary Visualization**  
+   - Visualize the decision boundary for the binary classification problem.
 
-3. **输出**  
-   - 输出决策函数的参数、预测值、分类准确率等。
+### [2. Use the LogisticRegression model from scikit-learn for multi-class classification on the Iris dataset.](ML2_2.ipynb)
 
-4. **决策边界可视化**  
-   - 将二分类问题的边界可视化。
+#### Specific Content:
 
-### [2. 采用 scikit-learn 中的 LogisticRegression 逻辑回归模型对 iris 数据集进行多分类。](ML2_2.ipynb)
+1. **Model Building**  
+   - Select two features and all classes, visualize the data using a scatter plot, and build a multi-class classification model.
 
-#### 具体内容：
+2. **Output**  
+   - Output the decision function parameters, predicted values, and classification accuracy.
 
-1. **模型建立**  
-   - 任选两个特征和全部类别进行散点图可视化，并建立多分类模型。
+3. **Decision Boundary Visualization**  
+   - Visualize the decision boundary for the multi-class classification problem.  
+   Hint: You can use `numpy`'s `meshgrid` to generate a grid for plotting, and `matplotlib`'s `contourf` to fill the color between contour lines.
 
-2. **输出**  
-   - 输出决策函数的参数、预测值、分类准确率等。
+#### Discussion:
 
-3. **决策边界可视化**  
-   - 将多分类问题的边界可视化。  
-   提示：可以使用 `numpy` 中的 `meshgrid` 生成绘图网格数据，使用 `matplotlib` 中的 `contourf` 将等高线之间颜色进行填充。
+- **Discussion 1: How do different multi-class strategies perform? What are the differences?**  
+   1. Compare the multi-class strategies in `LogisticRegression`, specifically `multi_class='ovr'` and `multi_class='multinomial'`.  
+   2. Compare the performance of the three multi-class strategies available in Multiclass classification.  
+   Hint: When comparing, ensure the dataset split is consistent, and the features being analyzed are the same. You can compare the results based on training/test accuracy and decision boundary visualizations.
 
-#### 讨论：
+### [3. Use the LogisticRegression model from scikit-learn for classification on a non-linear dataset.](ML2_3.ipynb)
 
-- **讨论一：不同多分类策略的效果如何？有何差异？**  
-   1. 尝试对比 `LogisticRegression` 中的 `multi_class='ovr'` 或 `'multinomial'` 两种多分类的差异。  
-   2. 尝试使用 Multiclass classification 中提供的 3 种多分类策略，并对比效果。  
-   提示：进行对比时，要保证数据集划分一致且分析的特征一致。可从训练集、测试集准确率和边界可视化角度进行对比。
+#### Specific Content:
 
-### [3. 采用 scikit-learn 中的 LogisticRegression 逻辑回归模型对非线性数据集进行分类。](ML2_3.ipynb)
+1. **Dataset**  
+   - Use the built-in `make_moons` dataset generator from sklearn to create two-class data samples. Modify the parameters as needed.
 
-#### 具体内容：
+2. **Feature Engineering (Data Augmentation)**  
+   - Use `sklearn.preprocessing.PolynomialFeatures` to generate polynomial features of a specified degree, creating a new feature matrix consisting of all polynomial combinations. The `degree` parameter is adjustable.
 
-1. **数据集**  
-   - 使用 sklearn 自带数据生成器 `make_moons` 产生两类数据样本，示例程序如下，参数可自行修改。
+3. **Model Building**  
+   - Build a logistic regression binary classification model using the new features.
 
-2. **特征衍生（数据增强）**  
-   - 使用 sklearn 自带的 `sklearn.preprocessing.PolynomialFeatures` 生成指定阶次的多项式特征，从而得到所有多项式组合成的新特征矩阵，`degree` 参数任选。
+4. **Decision Boundary Visualization**  
+   - Plot the decision boundary and observe how the non-linear boundary changes.
 
-3. **模型建立**  
-   - 在新特征基础上建立逻辑回归二分类模型。
+#### Discussion:
 
-4. **决策边界可视化**  
-   - 绘制决策边界，观察非线性边界的变化。
+- **Discussion 2: Without regularization, observe the effect of changing the number of derived features (i.e., the `degree` parameter) on the decision boundary and training/test scores. Experience the model's transition from underfitting -> fitting -> overfitting.**  
+   Hint: You can loop through different values of `degree` to observe the model results. Plot the training and test scores over iterations to help visualize the process (e.g., score curves).
 
-#### 讨论：
+- **Discussion 3: Based on Discussion 2, choose a model that is overfitting and add 'l1' and 'l2' regularization to observe changes in the decision boundary and training/test scores. Analyze the effect of the two regularization terms on the model.**
 
-- **讨论二：在不加正则项的情况下，改变特征衍生的特征数量（即 `degree` 参数），观察决策边界的变化情况，以及训练集和测试集分数，体会模型从欠拟合 -> 拟合 -> 过拟合的过程。**  
-   提示：可使用 `for` 循环对不同 `degree` 进行遍历，观察模型的建模结果。可通过绘制训练集和测试集分数曲线帮助观察（如示例图）。
+- **Discussion 4: Try manually adjusting the `degree`, regularization coefficient `C`, and regularization type to find the optimal set of parameters for the best generalization performance.**  
+   Hint: Use the "single-variable" tuning approach. Set the regularization type (e.g., 'l1') and coefficient `C` (e.g., default value), then manually adjust the maximum feature degree (`degree`) and optimize it. After choosing the best `degree` with 'l1' regularization, tune the regularization coefficient `C` to find the optimal model.
 
-- **讨论三：在讨论二的基础上选择一种模型过拟合的 `degree`，在模型中分别加入 'l1' 和 'l2' 正则项，观察决策边界的变化情况，以及训练集和测试集分数，体会两种正则项对模型的作用。**
+### [4. Implement Logistic Regression from scratch using numpy for binary classification on the Iris dataset.](ML2_4.ipynb)
 
-- **讨论四：可尝试手动调整 `degree`、正则项系数 `C` 和正则项种类，寻找使模型泛化性能最好的一组参数。**  
-   提示：手动调参采用“单一变量”原则。可先设定正则项种类（如 'l1'）和正则项系数 `C`（如默认），再人为设定特征最高阶次 `degree` 的范围进行 `degree` 寻优，在选定的 `degree` 和 'l1' 正则化后，设定正则项系数 `C` 的范围进行寻优。
+The specific implementation code for the logistic regression algorithm can be found in `LogisticRegression.py`.
 
-### [4. 使用 numpy 编写逻辑回归算法，对 iris 数据进行二分类。](ML2_4.ipynb)
+#### Specific Content:
 
-`LogisticRegression.py `中为逻辑回归算法的具体实现代码 
+1. **Choose two features and two classes for binary classification.**
 
-#### 具体内容：
+2. **Output**  
+   - Output the decision function parameters, predicted values, and classification accuracy.
 
-1. **任选两个特征和两个类别进行二分类。**
+3. **Visualization**  
+   - Visualize the data with a scatter plot for the selected features and visualize the decision boundary.
 
-2. **输出**  
-   - 输出决策函数的参数、预测值、分类准确率等。
+### [5. Implement Logistic Regression from scratch using numpy for multi-class classification on the Iris dataset.](ML2_5.ipynb)
 
-3. **可视化**  
-   - 选取两个特征进行散点图可视化，并可视化决策边界。
+#### Specific Content:
 
-### [5. 使用 numpy 编写逻辑回归算法，对 iris 数据进行多分类。](ML2_5.ipynb)
+- Output the decision function parameters, predicted values, and classification accuracy.
 
-#### 具体内容：
+#### Tips:
 
-- 输出决策函数的参数、预测值、分类准确率等。
+1. You can use OVR, OVO, or ECOC strategies for multi-class classification.
+2. Use the Cross-Entropy Loss with the Softmax strategy:
 
-#### 提示：
-
-1. 可采用 OVR、OVO、ECOC 策略。
-2. 可采用 CrossEntropy Loss +
-
-####  softmax 策略：
- 
-   a) 需将三个类别（如 0, 1, 2）进行 one-hot 编码。  
-   b) 每个线性分类器对应一组模型参数，3 个线性分类器对应 3 组模型参数。  
-   c) 可通过 softmax 回归计算多种类别的概率（K 种类别概率和为 1）。  
-   d) 通过最小化 CrossEntropy Loss 的梯度下降算法进行分类器参数寻优。
+   a) Perform one-hot encoding on the three classes (e.g., 0, 1, 2).  
+   b) Each linear classifier corresponds to a set of model parameters, and 3 classifiers will result in 3 sets of parameters.  
+   c) Compute the probability of each class using softmax regression (the sum of the probabilities of all K classes should be 1).  
+   d) Use gradient descent to minimize the Cross-Entropy Loss and optimize the classifier parameters.
