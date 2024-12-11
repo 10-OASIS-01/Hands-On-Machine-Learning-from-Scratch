@@ -1,96 +1,94 @@
+## VII. BP Neural Networks
 
-## 七、BP神经网络
+### [1. Classify the Wine Dataset Using MLPClassifier from scikit-learn and Visualize the Effects of Hyperparameters on Model Complexity Through Features and Decision Boundaries](ML7_1.ipynb)
 
-## [1. 采用 scikit-learn 中的 MLPClassifier 对红酒数据集进行分类，并通过特征和边界的可视化，直观体会多层感知机网络中的隐层上神经元数量、隐层层数、激活函数、正则化项系数等超参数对模型复杂程度的影响。](ML7_1.ipynb)
+#### Specific Content:
 
-### 具体内容：
+1. **Select the first two features and build a multilayer perceptron (MLP) for multi-class classification.**
 
-1. **选取前两个特征，建立多层感知机网络进行多分类。**
+2. **Visualization**  
+   - Use a scatter plot to visualize the data samples (the two selected features), and plot the decision boundary obtained after training the model.
 
-2. **可视化**  
-   - 通过散点图可视化数据样本（之前选择的两个特征），并画出模型训练后得到的决策边界。
+#### Discussion:
 
-#### 讨论：
+- **Discussion 1: Change the number of neurons in the single hidden layer (e.g., 10, 100 neurons), keeping other parameters constant, and observe its impact on the decision boundary.**
 
-- **讨论一：改变单隐层中神经元个数（如 10 个，100 个），其他参数不变，观察其对决策边界的影响。**
-  
-- **讨论二：改变神经网络深度（如深度为 2，每层 10 个神经元），其他参数不变，与讨论一进行对比，观察神经网络深度对决策边界的影响。**
+- **Discussion 2: Change the depth of the neural network (e.g., depth of 2 layers, 10 neurons per layer), keeping other parameters constant, and compare with Discussion 1 to observe the effect of network depth on the decision boundary.**
 
-- **讨论三：在讨论一（或讨论二）的基础上，改变激活函数（如 `tanh`、`relu`），与讨论一（或讨论二）进行对比，观察不同激活函数对决策边界的影响。**
+- **Discussion 3: Based on Discussion 1 (or 2), change the activation function (e.g., `tanh`, `relu`), and compare with Discussion 1 (or 2) to observe the impact of different activation functions on the decision boundary.**
 
-- **讨论四：在讨论三的基础上，增大正则化系数，观察正则化对决策边界的影响。**
+- **Discussion 4: Based on Discussion 3, increase the regularization coefficient and observe its effect on the decision boundary.**
 
-#### 总结：
+#### Summary:
 
-- 综合上述讨论，隐层上神经元数量、隐层层数、激活函数、正则化项系数对模型复杂程度有何影响。
-
----
-
-## [2. 采用 scikit-learn 中的 MLPClassifier 对自带手写数字数据集进行分类。](ML7_2.ipynb)
-
-### 具体要求：
-
-1. **导入数据集**  
-   - 手写数字集是 sklearn 中自带的数据集，它是一个三维数组 `(1797, 8, 8)`，即有 1797 个手写数字，每个数字由 8×8 的像素矩阵组成。矩阵中每个元素都是 0-16 范围内的整数。分类标签为 0-9 的数字。
-
-2. **模型建立**  
-   - 使用 `MLPClassifier` 建立分类模型。
-
-3. **输出**  
-   - 输出分类结果的准确率。
-
-#### 讨论：
-
-- **讨论五：结合模型复杂度与模型泛化误差之间的关系，调节模型超参数，提升模型泛化性能。**  
-   可尝试调节隐层神经元个数和隐层数、激活函数、学习率、正则项系数等超参数。
+- Summarize the effects of the number of neurons in the hidden layer, the number of hidden layers, the activation function, and the regularization coefficient on the model complexity.
 
 ---
 
-## [3. 编写 BPNN 算法，对 iris 数据集/手写数字集进行二分类或多分类。](ML7_3.ipynb)
+### [2. Classify the Built-in Handwritten Digit Dataset Using MLPClassifier from scikit-learn](ML7_2.ipynb)
 
-1. `Autograd.py`: 该代码实现了一个自动求导系统，通过类 `Value` 来存储数值和梯度，支持常见的数学操作（如加法、乘法、指数、对数等）以及反向传播（backward）计算梯度。
+#### Specific Requirements:
 
-2. `Microtorch.py`: 该代码实现了神经网络模块的基础框架，包括 `Module` 类和其子类 `Neuron` 和 `Layer`，用于构建和训练神经网络的层次结构，并提供了梯度清零、参数获取和结构描述等功能。
+1. **Load the Dataset**  
+   - The Handwritten Digit dataset is a built-in dataset from scikit-learn. It is a 3D array of shape `(1797, 8, 8)`, containing 1797 handwritten digits, each represented by an 8×8 pixel matrix. Each matrix element is an integer between 0 and 16. The classification labels are digits from 0 to 9.
 
-3. `MLP.py`: 该代码实现了一个多层感知器（MLP）神经网络模型，包括输入层、多个隐藏层和输出层，并支持前向传播计算输出，梯度更新和结构描述。
+2. **Model Building**  
+   - Use `MLPClassifier` to build a classification model.
 
-### 具体要求：
+3. **Output**  
+   - Output the classification accuracy.
 
-1. **数据样本标签处理**  
-   - 二分类任务：正类为 1，负类为 0。  
-   - 多分类任务：将样本标签变为 one-hot 向量。
+#### Discussion:
 
-2. **搭建浅层神经网络**  
-   - 隐层数 1-2 个即可。每层神经元的个数自选。
+- **Discussion 5: Relate model complexity to the model's generalization error, tune the hyperparameters, and improve model generalization performance.**  
+   - Try adjusting hyperparameters such as the number of neurons in the hidden layers, the number of hidden layers, activation functions, learning rate, and regularization coefficients.
 
-3. **激活函数**  
-   - 自选（`relu`、`sigmoid`、`tanh`）。  
-   - 代价函数：自选（交叉熵损失、均方误差）。
+---
 
-4. **输出**  
-   - 输出分类准确率。
+### [3. Implement a BPNN Algorithm and Perform Classification on the Iris Dataset or Handwritten Digit Dataset (Choose One)](ML7_3.ipynb)
 
-5. **可视化**  
-   - 迭代的代价函数曲线。
+The following files contain the implementation of the BPNN algorithm:
+- `Autograd.py`: Implements an automatic differentiation system. It uses the `Value` class to store values and gradients, and supports common mathematical operations (e.g., addition, multiplication, exponentiation, logarithms) as well as backward propagation to compute gradients.
+- `Microtorch.py`: Implements the basic framework for a neural network module, including the `Module` class and its subclasses `Neuron` and `Layer`. This framework is used to build and train neural networks, and includes functions for gradient resetting, parameter retrieval, and structure description.
+- `MLP.py`: Implements a multilayer perceptron (MLP) neural network model, including an input layer, multiple hidden layers, and an output layer. It supports forward propagation to compute outputs, gradient updates, and structure descriptions.
 
-6. **尝试手写 BP 网络链式法则的反向传播计算过程**。
+#### Specific Requirements:
 
-#### 注意事项：
+1. **Label Processing**  
+   - For binary classification: Positive class as 1, negative class as 0.  
+   - For multi-class classification: Convert the sample labels to one-hot vectors.
 
-- **提高运算效率**  
-   - 算法编写尽量使用向量化技术，避免使用 `for` 循环遍历样本和神经元。
+2. **Build a Shallow Neural Network**  
+   - 1-2 hidden layers. The number of neurons in each layer is to be selected freely.
 
-- **权重和偏置计算**  
-   - 一般将权重 `w` 和偏置 `b` 分开进行计算。
+3. **Activation Function**  
+   - Choose from `relu`, `sigmoid`, or `tanh`.  
+   - Loss function: Choose from cross-entropy loss or mean squared error.
 
-- **初始化权重**  
-   - 为避免梯度消失或梯度爆炸，通常采用随机初始化权重 `w`，而不是将权重全部初始化为 0 或 1。  
-     示例：若要生成服从 `𝒩(0, √(2/(𝑛𝑖𝑛+𝑛𝑜𝑢𝑡)))` 分布的随机数，可使用如下程序：  
+4. **Output**  
+   - Output the classification accuracy.
+
+5. **Visualization**  
+   - Plot the cost function curve over iterations.
+
+6. **Try Implementing the Chain Rule for Backpropagation in BP Networks.**
+
+#### Notes:
+
+- **Improve Computational Efficiency**  
+   - Use vectorization techniques in the algorithm to avoid using `for` loops to iterate through samples and neurons.
+
+- **Weight and Bias Calculations**  
+   - Typically, weights `w` and biases `b` are computed separately.
+
+- **Weight Initialization**  
+   - To avoid gradient vanishing or exploding, it is common to initialize weights randomly rather than setting them all to 0 or 1.  
+     Example: To generate random numbers from the distribution `𝒩(0, √(2/(𝑛𝑖𝑛+𝑛𝑜𝑢𝑡)))`, you can use:  
      ```python
      np.random.randn(m, n) * np.sqrt(2 / (nin + nout))
      ```
-     其中 `nin` 为神经元的输入连接数量，`nout` 为神经元的输出连接数量，`m` 和 `n` 分别为返回数组的行数和列数。
+     where `nin` is the number of input connections to a neuron, `nout` is the number of output connections, and `m` and `n` are the dimensions of the resulting array.
 
-- **注意数组维度**  
-   - 向量计算过程中，要注意数组维度，避免出现异常 bug。避免使用一维数组（例如 `np.random.randn(5)`），这不是列向量也不是行向量！  
-     可通过下面示例 `np.random.randn(5, 1)` 或 `np.random.randn(1, 5)` 创建列向量或行向量，或使用 `reshape` 方法变换数组的维度。
+- **Watch Out for Array Dimensions**  
+   - Be careful with array dimensions during vectorized operations to avoid bugs. Do not use one-dimensional arrays (e.g., `np.random.randn(5)`) as these are neither column vectors nor row vectors.  
+     To create column or row vectors, you can use examples like `np.random.randn(5, 1)` or `np.random.randn(1, 5)`, or reshape arrays as needed.
