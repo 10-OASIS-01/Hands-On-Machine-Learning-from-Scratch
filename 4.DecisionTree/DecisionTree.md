@@ -1,77 +1,76 @@
+## IV. Decision Trees
 
-## 四、决策树
+### [1. Predict the Wine Dataset Using DecisionTreeClassifier from scikit-learn](ML4_1.ipynb)
 
-### [1. 采用 scikit-learn 中的 DecisionTreeClassifier 决策树对葡萄酒数据集进行预测](ML4_1.ipynb)
+#### Details:
 
-#### 具体内容：
+1. **Load the Dataset**  
+   - The Wine dataset is a built-in dataset in scikit-learn. You can refer to the API documentation here: [sklearn.datasets.load_wine](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine).  
+   Explore the dataset by reviewing its size, dimensions, feature types (discrete or continuous), feature names, label names, label distribution, and other descriptive information.
 
-1. **导入数据集**  
-   - 葡萄酒数据集是 sklearn 中自带的数据集，API 使用参考网址：[sklearn.datasets.load_wine](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine)。  
-   通过查看数据量和维度、特征类型（离散或连续）、特征名、标签名、标签分布情况、数据集的描述等信息了解数据集。
+2. **Model Building**  
+   - Build a decision tree classifier for multi-class classification using all features (you can use the default settings for tree model parameters).
 
-2. **模型建立**  
-   - 使用全部特征建立决策树多分类模型（树模型参数可按默认设置）。
+3. **Output**  
+   - Feature importance, classification accuracy, and a tree diagram.
 
-3. **输出**  
-   - 特征重要程度、分类准确率、绘制树形图。
+#### Discussion:
 
-#### 讨论：
+- **Discussion 1: How do the model parameters affect model performance?**  
+   1. Does changing the feature selection criterion (`criterion='gini'` or `'entropy'`) affect model performance?  
+   2. Does changing the feature splitting criterion (`splitter='best'` or `'random'`) affect model performance?  
+   3. Try modifying parameters like `max_depth`, `min_samples_leaf`, and `min_samples_split`, and analyze their effects through the tree diagram.
 
-- **讨论一：模型参数对模型性能有何影响？**  
-   1. 不同特征选择标准（`criterion='gini'` 或 `'entropy'`）对模型性能是否有影响？  
-   2. 不同特征划分标准（`splitter='best'` 或 `'random'`）对模型性能是否有影响？  
-   3. 尝试修改 `max_depth`、`min_samples_leaf`、`min_samples_split` 等参数，通过树形图分析参数的作用。
+- **Discussion 2: How to determine the optimal pruning parameters?**  
+   Find suitable hyperparameters and show the model's performance after tuning. You can use learning curves to help choose hyperparameters, as they allow you to observe trends in how hyperparameters affect model performance. If many hyperparameters need to be determined, and they are interdependent, consider using `GridSearchCV` to select the best hyperparameters for the model.
 
-- **讨论二：如何确定最优的剪枝参数？**  
-   找到合适的超参数，展示调整后的模型效果。可使用学习曲线进行超参数选取，其优点是可以看到超参数对模型性能影响的趋势。如果需要确定的超参数比较多，且超参数之间相互影响时，可尝试使用 `GridSearchCV` 选择模型最优的超参数。
+### [2. Predict the KDD Cup 99 Dataset Using DecisionTreeClassifier from scikit-learn](ML4_2.ipynb)
 
-### [2. 使用 scikit-learn 中的 DecisionTreeClassifier 决策树对 kddcup99 数据集进行预测](ML4_2.ipynb)
+#### Details:
 
-#### 具体内容：
+1. **Dataset Overview**  
+   - The `kddcup99` dataset is the dataset used in the KDD Cup 1999 competition, which is a real-world dataset for network intrusion detection. It contains 41 features, with 23 classes (1 normal network, 22 types of network intrusions), and approximately 5 million data points. Due to the large size, you may choose to work with only 10% of the total dataset.
 
-1. **数据集介绍**  
-   - `kddcup99` 数据集是 KDD 竞赛在 1999 年举行时采用的数据集，是网络入侵检测领域的真实数据，具有 41 个特征，类别数量有 23 种（1 种正常网络、22 种网络入侵类型），约五百万数据量。由于数据量很大，可以选择获取总数据量的 10%。
-
-   数据集获取方法：  
+   Dataset can be accessed using:  
    ```python
    sklearn.datasets.fetch_kddcup99(*, subset=None, data_home=None, shuffle=False, random_state=None, percent10=True, download_if_missing=True, return_X_y=False, as_frame=False)
    ```
 
-   - [Kaggle 官网数据源](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html)
+   - [Kaggle dataset source](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html)
 
-2. **数据预处理**  
-   - 由于 `kddcup99` 数据集中的第 2、3、4 列特征为文本信息，需要重新编码。类别标签也为文本数据，需要编码操作。选择适合的编码方式，对数据进行编码之后，再进行建模。
+2. **Data Preprocessing**  
+   - Columns 2, 3, and 4 in the `kddcup99` dataset contain textual features, which need to be re-encoded. The class labels are also textual, requiring encoding. Choose appropriate encoding methods, preprocess the data, and then proceed with modeling.
 
-3. **选择评价指标**  
-   - 选择适合的评价指标，尝试调参，建立效果最好的一个模型。
+3. **Choose Evaluation Metrics**  
+   - Select suitable evaluation metrics and try tuning parameters to build the best-performing model.
 
-### [3. 使用 numpy 编写的 CART 分类/回归树（选择一种即可）算法，并对 iris 数据集/california 数据集进行预测](ML4_3.ipynb)
+### [3. Implement CART Classification/Regression Tree Algorithm (Choose One) Using Numpy and Predict on the Iris/California Dataset](ML4_3.ipynb)
 
-`CART.py`中为 CART 分类/回归树算法的具体实现代码 
+`CART.py` contains the specific implementation of the CART classification/regression tree algorithm.
 
-#### 具体内容：
+#### Details:
 
-1. **导入数据集**  
-   - 导入数据集。
+1. **Load the Dataset**  
+   - Import the dataset.
 
-2. **划分数据**  
-   - 将数据划分为训练集和测试集。
+2. **Split the Data**  
+   - Divide the data into training and testing sets.
 
-3. **训练模型**  
-   - 参考程序模板 `cart_numpy_template.py` 进行训练。
+3. **Train the Model**  
+   - Train the model following the program template `cart_numpy_template.py`.
 
-4. **输出树模型**  
-   - 输出训练后的决策树模型。
+4. **Output the Tree Model**  
+   - Output the trained decision tree model.
 
-5. **模型预测**  
-   - 在测试集上进行预测，评估模型性能。
+5. **Model Prediction**  
+   - Make predictions on the test set and evaluate model performance.
 
-#### 拓展内容：
+#### Extension:
 
-- **尝试加入 TN 样本数量阈值和 TG 基尼指数阈值作为终止条件。**
-- **尝试对离散特征进行分枝。**
+- **Try adding a threshold for the number of TN (True Negative) samples and the Gini index threshold for TG as stopping conditions.**
+- **Try branching on discrete features.**
 
-#### 讨论：
+#### Discussion:
 
-- **讨论四：树递归分枝的终止条件是什么？展示对应的代码。**  
-  请结合代码简述树的递归分枝的过程。
+- **Discussion 4: What are the stopping conditions for tree recursion branching? Please display the corresponding code.**  
+   Briefly describe the recursive branching process of the tree using the code.
