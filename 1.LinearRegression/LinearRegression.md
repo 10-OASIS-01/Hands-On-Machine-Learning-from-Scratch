@@ -1,4 +1,4 @@
-## 1. Linear Regression
+## I. Linear Regression
 
 ### [1. Use the LinearRegression (Least Squares) model from scikit-learn to predict the Boston Housing dataset, and model using both the Normal Equation and Stochastic Gradient Descent methods.](ML1_1.ipynb)
 
