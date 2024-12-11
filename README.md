@@ -1,60 +1,59 @@
-# 动手学机器学习
+# Hands-on Learning of Machine Learning from Scratch
 
-### [一、线性回归](1.LinearRegression/LinearRegression.md)
+### [1. Linear Regression](1.LinearRegression/LinearRegression.md)
 
-#### 1. 采用 scikit-learn 中的 LinearRegression(最小二乘)线性回归模型对波士顿房价数据集进行预测，分别使用正则方程和随机梯度下降方法建模。
+#### 1. Use the LinearRegression (Least Squares) model from scikit-learn to predict the Boston Housing dataset, and build models using both the normal equation and stochastic gradient descent methods.
 
-#### 2. 使用numpy从零实现线性回归算法，采用梯度下降法（BGD）优化线性回归模型，对波士顿房价进行预测。 
+#### 2. Implement the linear regression algorithm from scratch using numpy, optimizing the model using gradient descent (BGD) to predict the Boston Housing prices.
 
-### [二、逻辑回归](2.LogisticRegression/LogisticRegression.md)
+### [2. Logistic Regression](2.LogisticRegression/LogisticRegression.md)
 
-#### 1. 采用 scikit-learn 中的 LogisticRegression 逻辑回归模型对 iris 数据集进行二分类。
+#### 1. Use the LogisticRegression model from scikit-learn to perform binary classification on the Iris dataset.
 
-#### 2. 采用 scikit-le恩中的 LogisticRegression 逻辑回归模型对 iris 数据集进行多分类。
+#### 2. Use the LogisticRegression model from scikit-learn to perform multi-class classification on the Iris dataset.
 
-#### 3. 采用 scikit-learn 中的 LogisticRegression 逻辑回归模型对非线性数据集进行分类。
+#### 3. Use the LogisticRegression model from scikit-learn to classify a non-linear dataset.
 
-#### 4. 使用numpy从零实现逻辑回归算法，对 iris 数据进行二分类。
+#### 4. Implement the logistic regression algorithm from scratch using numpy for binary classification on the Iris dataset.
 
-#### 5. 使用numpy从零实现逻辑回归算法，对 iris 数据进行多分类。
+#### 5. Implement the logistic regression algorithm from scratch using numpy for multi-class classification on the Iris dataset.
 
-### [三、支持向量机](3.SupportVectorMachine/SupportVectorMachine.md)
+### [3. Support Vector Machines](3.SupportVectorMachine/SupportVectorMachine.md)
 
-#### 1. 采用 scikit-learn 中的线性 SVM 对 iris 数据集进行二分类
+#### 1. Use the linear SVM from scikit-learn for binary classification on the Iris dataset.
 
-#### 2. 采用不同的 SVM 核函数对多种类型数据集进行二分类
+#### 2. Use different SVM kernel functions to perform binary classification on various datasets.
 
-#### 3. 使用 scikit-learn 中的 SVM 分类器对乳腺癌威斯康星州数据集进行分类
+#### 3. Use the SVM classifier from scikit-learn to classify the Breast Cancer Wisconsin dataset.
 
-#### 4. 使用numpy从零编写 SMO 算法实现线性 SVM 分类器，对 iris 数据集进行二分类
+#### 4. Implement the SMO algorithm from scratch using numpy to create a linear SVM classifier, and perform binary classification on the Iris dataset.
 
-### [四、决策树](4.DecisionTree/DecisionTree.md)
+### [4. Decision Trees](4.DecisionTree/DecisionTree.md)
 
-#### 1. 采用 scikit-learn 中的 DecisionTreeClassifier 决策树对葡萄酒数据集进行预测
+#### 1. Use the DecisionTreeClassifier from scikit-learn to predict the Wine dataset.
 
-#### 2. 使用 scikit-learn 中的 DecisionTreeClassifier 决策树对 kddcup99 数据集进行预测
+#### 2. Use the DecisionTreeClassifier from scikit-learn to predict the KDD Cup 99 dataset.
 
-#### 3. 使用numpy从零实现 CART 分类/回归树算法，并对 iris 数据集/california 数据集进行预测
+#### 3. Implement the CART classification/regression tree algorithm from scratch using numpy, and perform predictions on the Iris dataset or the California Housing dataset.
 
-### [五、随机森林](5.RandomForest/RandomForest.md)
+### [5. Random Forests](5.RandomForest/RandomForest.md)
 
-#### 1. 采用 scikit-learn 中的 RandomForestRegressor 对加利福尼亚房价数据集进行预测
+#### 1. Use the RandomForestRegressor from scikit-learn to predict the California Housing dataset.
 
-#### 2. 使用numpy从零实现随机森林算法，并对葡萄酒数据/加利福尼亚房价数据（任选其一）进行预测，并展示模型评分，与 sklearn 自带的评估器建模结果进行对比。
+#### 2. Implement the Random Forest algorithm from scratch using numpy, and predict either the Wine dataset or the California Housing dataset (choose one), comparing the model's score with the results from scikit-learn's built-in evaluator.
 
-### [六、Adaboost](6.AdaBoost/AdaBoost.md)
+### [6. AdaBoost](6.AdaBoost/AdaBoost.md)
 
-#### 1. 采用 scikit-learn 中的 AdaBoostClassifier 对葡萄酒数据集进行预测
+#### 1. Use the AdaBoostClassifier from scikit-learn to predict the Wine dataset.
 
-#### 2. 使用numpy从零实现 AdaBoost-SAMME 算法，并对乳腺癌数据集进行预测，展示模型评分。
+#### 2. Implement the AdaBoost-SAMME algorithm from scratch using numpy, and predict the Breast Cancer dataset, showing the model's score.
 
-#### 3. 采用 scikit-learn 中的 GradientBoostingRegressor 对加利福尼亚房价数据集进行预测
+#### 3. Use the GradientBoostingRegressor from scikit-learn to predict the California Housing dataset.
 
-### [七、BP神经网络](7.BackpropagationNeuralNetwork/BackpropagationNeuralNetwork.md)
+### [7. BP Neural Networks](7.BackpropagationNeuralNetwork/BackpropagationNeuralNetwork.md)
 
-#### 1. 采用 scikit-learn 中的 MLPClassifier 对红酒数据集进行分类，并通过特征和边界的可视化，直观体会多层感知机网络中的隐层上神经元数量、隐层层数、激活函数、正则化项系数等超参数对模型复杂程度的影响。
+#### 1. Use the MLPClassifier from scikit-learn to classify the Red Wine dataset, and visualize the feature boundaries. Intuitively understand the effect of hyperparameters such as the number of neurons in hidden layers, the number of hidden layers, activation functions, and regularization coefficients on model complexity.
 
-#### 2. 采用 scikit-learn 中的 MLPClassifier 对自带手写数字数据集进行分类。
+#### 2. Use the MLPClassifier from scikit-learn to classify the built-in handwritten digit dataset.
 
-#### 3. 使用numpy从零实现 BPNN 算法，对 iris 数据集/手写数字集进行二分类或多分类。
-
+#### 3. Implement the BPNN algorithm from scratch using numpy, performing binary or multi-class classification on the Iris dataset or the handwritten digits dataset.
